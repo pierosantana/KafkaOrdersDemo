@@ -58,7 +58,7 @@ Crea el topic `orders` con varias particiones para que los mensajes se repartan 
 kafka-topics --create --topic orders --bootstrap-server localhost:9092 --partitions 4 --replication-factor 1
 ```
 
-> Esto se hace **solo una vez**, no en el código Java.
+> Esto se hace **solo una vez** en la terminal.
 
 ---
 
@@ -72,8 +72,8 @@ kafka-topics --create --topic orders --bootstrap-server localhost:9092 --partiti
 Ejemplo terminal/IDE:
 
 ```bash
-mvn compile exec:java -Dexec.mainClass="com.example.usermanager.OrderConsumer"
-mvn compile exec:java -Dexec.mainClass="com.example.usermanager.OrderConsumerTwo"
+mvn compile exec:java -Dexec.mainClass="com.pierosantana.consumer.OrderConsumer"
+mvn compile exec:java -Dexec.mainClass="com.pierosantana.consumer.OrderConsumerTwo"
 ```
 
 ### 2. Ejecutar el producer
@@ -81,7 +81,7 @@ mvn compile exec:java -Dexec.mainClass="com.example.usermanager.OrderConsumerTwo
 * Una vez los consumers estén corriendo, ejecuta el producer:
 
 ```bash
-mvn compile exec:java -Dexec.mainClass="com.example.usermanager.OrderProducer"
+mvn compile exec:java -Dexec.mainClass="com.pierosantana.producer.OrderProducer"
 ```
 
 * Verás los pedidos enviados y cómo se reparten entre los consumers.
