@@ -91,8 +91,8 @@ mvn compile exec:java -Dexec.mainClass="com.pierosantana.producer.OrderProducer"
 ## Notas importantes
 
 * Para que los mensajes se **repartan entre consumers**, todos deben usar **el mismo `group.id`**.
+* Si los **consumers** no comparten el mismo `group.id`, cada uno recibirá todos los mensajes del topic (funcionan como suscriptores independientes).
 * La **distribución de mensajes** depende de las **particiones del topic**.
-* Un mismo consumer **no puede leer de múltiples hilos de Kafka** directamente; si quieres procesamiento paralelo dentro de un consumer, se usan hilos internos solo para procesar los mensajes, no para leerlos.
 * Este proyecto es un ejemplo **básico para aprender producer, consumer, topics y grupos en Kafka**.
 
 ---
